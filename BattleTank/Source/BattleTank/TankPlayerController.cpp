@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Tank.h"
 #include "TankPlayerController.h"
+#include "Tank.h"
 #include "BattleTank.h"
 
 #define OUT
@@ -40,8 +40,10 @@ void ATankPlayerController::AimTowardsCrosshair()
 	if (!GetControlledTank()) { return; }
 
 	FVector HitLocation; // Outparameter
+	auto Time = GetWorld()->GetTimeSeconds();
 	if (GetSigthRayLocation(HitLocation))
 	{
+		auto Time = GetWorld()->GetTimeSeconds();
 		GetControlledTank()->AimAt(HitLocation);
 	}
 }
